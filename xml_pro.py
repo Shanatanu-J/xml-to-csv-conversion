@@ -2,7 +2,6 @@ import logging
 import xml.etree.ElementTree as ET
 from io import BytesIO
 from zipfile import ZipFile
-
 import pandas as pd
 import requests
 
@@ -92,3 +91,33 @@ if __name__ == "__main__":
 
 # We need to use The AWS SDK for Python (Boto3), I cant acces the AWS as i don't have a credit card.
 # But i can complete this requirement if you guys can provide a S3 bucket.
+
+# #!!!!!! AWS Code !!!!!
+
+# import boto
+# import boto.s3.connection
+# access_key = "temp_access_key"
+# secret_key = "temp_secret_key"
+
+# conn = boto.connect_s3(
+#             aws_access_key_id = 'temp_access_key',
+#             aws_secret_access_key = 'temp_secret_key')
+
+# #creating all buckets
+
+# bucket1 = conn.create_bucket('xml_to_csv')
+
+# #Loading csv file in s3
+
+# from io import StringIO
+# import boto3
+
+# hc = pd.read_csv("final.csv")
+
+# s3 = boto3.client("s3", aws_access_key_id = "temp_access_key",
+#                  aws_secret_access_key = 'temp_secret_key')
+
+# csv_buf = StringIO()
+# hc.to_csv(csv_buf, header=True, index=False)
+# csv_buf.seek(0)
+# s3.put_object(Bucket = "xml_to_csv", Body = csv_buf.getvalue(), key="test.csv")
