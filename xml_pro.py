@@ -86,3 +86,9 @@ if __name__ == "__main__":
                 ,index=False, mode='w', encoding="UTF-8")
 
     logging.info("Conversion Completed Successfully.")
+
+
+# step 5) Store the csv from step 4) in an AWS S3 bucket
+
+# We need to use The AWS SDK for Python (Boto3), I cant acces the AWS as i don't have a credit card.
+# But i can complete this requirement if you guys can provide a S3 bucket.
