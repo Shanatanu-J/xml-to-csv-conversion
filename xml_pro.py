@@ -1,11 +1,10 @@
-import xml.etree.ElementTree as ET
-from zipfile import ZipFile
-from io import BytesIO
 import logging
-import requests
+import xml.etree.ElementTree as ET
+from io import BytesIO
+from zipfile import ZipFile
+
 import pandas as pd
-
-
+import requests
 
 logging.basicConfig(level=logging.INFO, filename="log.log", filemode="w",
                     format="%(asctime)s - %(levelname)s - %(message)s")
@@ -28,18 +27,20 @@ def get_req_data(root_object):
         if childs.tag == 'result':
             for doc in childs:
                 req_dict = {}
-                for d in doc:
-                    req_dict[d.attrib['name']] = d.text
+                for att in doc:
+                    req_dict[att.attrib['name']] = att.text
                 data.append(req_dict)
     logging.info('Parse through to the first download link whose file_type is DLTINS.')
     return data
 
 def download_req_file(data_object):
-    """download_req_file function takes data list as input and parses through 
-       to the first download link whose file_type is DLTINS and download the zip."""
+    """
+        Download_req_file function takes data list as input and parses through
+        to the first download link whose file_type is DLTINS and download the zip.
+    """
     fname = ''
     for element in data_object:
-        if element['file_type'] == 'DLTINS': 
+        if element['file_type'] == 'DLTINS':
             req = requests.get(element["download_link"])
             req_zip = ZipFile(BytesIO(req.content))
             fname = req_zip.namelist()[0]
@@ -61,11 +62,11 @@ if __name__ == "__main__":
         temp, issr_temp = {}, {}
         if "FinInstrmGnlAttrbts" in child.tag:
             for ele in child:
-                temp[ele.tag.split("}")[-1]] = ele.text 
+                temp[ele.tag.split("}")[-1]] = ele.text
             data_ls.append(temp)
 
         if child.tag.endswith("}Issr"):
-            issr_temp[child.tag.split("}")[-1]] = ele.text
+            issr_temp[child.tag.split("}")[-1]] = child.text
             issr_ls.append(issr_temp)
 
     logging.info('Parsed FinInstrmGnAttribs and Issr attributes.')

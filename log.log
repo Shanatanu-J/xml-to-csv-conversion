@@ -1,9 +1,4 @@
-2022-09-26 22:26:04,028 - INFO - START
-2022-09-26 22:26:04,029 - INFO - Parsed given XML, Return the root.
-2022-09-26 22:26:04,029 - INFO - Parse through to the first download link whose file_type is DLTINS.
-2022-09-26 22:26:05,743 - INFO - Downloaded the zip from the download link and extracted the zip ,Return the required XML.
-2022-09-26 22:26:10,993 - INFO - Parsed given XML, Return the root.
-2022-09-26 22:26:12,269 - INFO - Parsed FinInstrmGnAttribs and Issr attributes.
-2022-09-26 22:26:12,411 - INFO - Converted the FinInstrmGnAttribs attributes to Pandas DataFrame.
-2022-09-26 22:26:12,460 - INFO - Converted the Issr attributes to Pandas DataFrame.
-2022-09-26 22:26:12,818 - INFO - Conversion Completed Successfully.
+2022-09-27 11:48:16,451 - INFO - START
+2022-09-27 11:48:16,452 - INFO - Parsed given XML, Return the root.
+2022-09-27 11:48:16,452 - INFO - Parse through to the first download link whose file_type is DLTINS.
+2022-09-27 11:48:16,452 - INFO - Parsed given XML, Return the root.
